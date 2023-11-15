@@ -13,7 +13,6 @@ class HabitCreateAPIView(generics.CreateAPIView):
 
     def perform_create(self, serializer):
         new_habit = serializer.save()
-        print(self.request.user)
         new_habit.user = self.request.user
 
         new_habit.save()
