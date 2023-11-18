@@ -64,7 +64,8 @@ class AssociatedHabitIsPleasurableHabitValidator:
     def __call__(self, value):
 
         associated_habit = dict(value).get(self.field)
-        habit = Habit.objects.get(pk=associated_habit.pk)
+        if associated_habit is not None:
+            habit = Habit.objects.get(pk=associated_habit.pk)
 
-        if not habit.is_pleasurable:
-            raise ValidationError('Связанная привычка не является приятной')
+            if not habit.is_pleasurable:
+                raise ValidationError('Связанная привычка не является приятной')
