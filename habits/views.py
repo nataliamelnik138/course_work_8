@@ -4,7 +4,7 @@ from rest_framework.permissions import IsAuthenticated
 from habits.models import Habit
 from habits.paginator import HabitPaginator
 from habits.permissions import IsOwner
-from habits.serliazers import HabitSerializer, HabitPublicSerializer
+from habits.serliazers import HabitPublicSerializer, HabitSerializer
 
 
 class HabitCreateAPIView(generics.CreateAPIView):
