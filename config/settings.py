@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'rest_framework_simplejwt',
     'drf_yasg',
     'django_celery_beat',
+    'corsheaders',
 
     'users',
     'habits',
@@ -58,6 +59,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
 ]
 
 ROOT_URLCONF = 'config.urls'
@@ -155,3 +157,21 @@ SIMPLE_JWT = {
 
 CELERY_BROKER_URL = 'redis://localhost:6379'
 CELERY_RESULT_BACKEND = 'redis://localhost:6379'
+
+API_KEY_TELEGRAM_BOT = os.getenv('API_KEY_TELEGRAM_BOT')
+
+CELERY_BEAT_SCHEDULE = {
+    'task-name': {
+        'task': 'habits.tasks.send_message',
+        'schedule': timedelta(hours=1),
+    },
+}
+
+CORS_ALLOWED_ORIGINS = [
+    "https://read-only.example.com",
+    "https://read-and-write.example.com",
+]
+
+CSRF_TRUSTED_ORIGINS = [
+    "https://read-and-write.example.com"
+]
