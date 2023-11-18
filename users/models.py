@@ -11,7 +11,11 @@ class User(AbstractUser):
         null=True,
         verbose_name='Аватар'
     )
-    telegram_chat_id = models.CharField(max_length=35, verbose_name='ID чата Telegram', blank=True, null=True,)
+    telegram_chat_id = models.CharField(
+        max_length=35,
+        verbose_name='ID чата Telegram',
+        blank=True,
+        null=True,)
 
     USERNAME_FIELD = "email"
     REQUIRED_FIELDS = []

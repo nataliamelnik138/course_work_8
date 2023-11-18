@@ -5,7 +5,8 @@ from rest_framework_simplejwt.views import (
 )
 
 from users.apps import UsersConfig
-from users.views import UserCreateAPIView, UserUpdateAPIView, UserRetrieveAPIView
+from users.views import UserCreateAPIView, UserUpdateAPIView, \
+    UserRetrieveAPIView
 
 app_name = UsersConfig.name
 
