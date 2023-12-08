@@ -12,13 +12,21 @@
 - PostgreSQL
 - Celery 5.3.5
 - Redis 5.0.1
+- Docker
 
 ### Инструкция по развертыванию проекта:
 
-Клонирование проекта:
+#### Клонирование проекта:
 ```
 git clone https://github.com/nataliamelnik138/course_work_7
 ```
+#### Запуск проекта с использованием Docker:
+Запустите контейнер
+```
+docker-compose up -d —build 
+```
+
+#### Запуск проекта без использования Docker:
 Запуск:
 1. Создайте виртуальное окружение
 ```
@@ -48,6 +56,7 @@ celery -A config worker -l INFO -P eventlet
 ```
 celery -A config  beat -l info 
 ```
+
 ### Документация API
 ```
 http://127.0.0.1:8000/redoc/
