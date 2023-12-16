@@ -43,6 +43,7 @@ services:
     depends_on:
       - redis
       - app
+    restart: on-failure
 
   celery_beat:
     build: .
